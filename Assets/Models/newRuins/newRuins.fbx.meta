@@ -31,17 +31,17 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Tileable ground sand texture
-    second: {fileID: 2800000, guid: 42595625917ef3a49bd82b36217eb4ba, type: 3}
+    second: {fileID: 2800000, guid: cd6e06f2c953aeb4f8bbad9cdb36896f, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: dry-wood-4
-    second: {fileID: 2800000, guid: 14f4d380b0e1a7f4a8fe82c0e2243140, type: 3}
+    second: {fileID: 2800000, guid: 87d38784eca542342aa48adc5b29dccb, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: textur_heller_felsen
-    second: {fileID: 2800000, guid: 8452f85ce18938f428c76eecc6ba8d45, type: 3}
+    second: {fileID: 2800000, guid: 6debd1abce3ac4c44a398401c40fcb15, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
