@@ -32,7 +32,7 @@ public class TorchScript : MonoBehaviour
         if (other.GetComponent<TorchScript>() && other.GetComponent<TorchScript>().on) {
             on = true;
             TurnOn();
-            GameObject.Find("TorchController").GetComponent<TorchControllerScript>().AllOn();
+            //GameObject.Find("TorchController").GetComponent<TorchControllerScript>().AllOn();
         }
     }
 }
