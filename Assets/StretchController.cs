@@ -5,6 +5,7 @@ using UnityEngine;
 public class StretchController : MonoBehaviour
 {
     public GameObject[] exercises;
+    public GameObject[] murials;
     public bool begin;
     public bool finished;
     public float offset;
@@ -27,8 +28,11 @@ public class StretchController : MonoBehaviour
     }
     IEnumerator doExercise()
     {
-        foreach (GameObject g in exercises)
+        for (int i = 0; i < exercises.Length; i++)
         {
+            GameObject g = exercises[i];
+            murials[i].SetActive(true);
+
             g.SetActive(true);
             CheckController[] stretches = g.GetComponentsInChildren<CheckController>();
             Debug.Log(stretches[0].transform.localPosition.y);
@@ -36,6 +40,7 @@ public class StretchController : MonoBehaviour
             stretches[1].transform.position = new Vector3(stretches[1].transform.position.x, head.transform.position.y, stretches[1].transform.position.z);
             yield return new WaitUntil(() => stretches[0].complete && stretches[1].complete);
             g.SetActive(false);
+            murials[i].SetActive(false);
         }
         finished = true;
        
