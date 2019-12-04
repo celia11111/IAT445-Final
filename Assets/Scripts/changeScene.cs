@@ -21,7 +21,15 @@ public class changeScene : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(1);
+            if (SceneManager.GetActiveScene().name == "desert")
+            {
+                SceneManager.LoadScene(1);
+            }
+            
+            if (SceneManager.GetActiveScene().name == "underground")
+            {
+                SceneManager.LoadScene(2);
+            }
         }
     }
 }
