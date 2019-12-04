@@ -34,5 +34,16 @@ public class TorchScript : MonoBehaviour
             TurnOn();
             //GameObject.Find("TorchController").GetComponent<TorchControllerScript>().AllOn();
         }
+        if (other.tag == "GameController")
+        {
+            GetComponent<Rigidbody>().isKinematic = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "GameController")
+        {
+            GetComponent<Rigidbody>().isKinematic = false;
+        }
     }
 }
