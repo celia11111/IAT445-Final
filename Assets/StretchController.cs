@@ -36,8 +36,8 @@ public class StretchController : MonoBehaviour
             g.SetActive(true);
             CheckController[] stretches = g.GetComponentsInChildren<CheckController>();
             Debug.Log(stretches[0].transform.localPosition.y);
-            stretches[0].transform.position = new Vector3(stretches[0].transform.position.x, head.transform.position.y , stretches[0].transform.position.z);
-            stretches[1].transform.position = new Vector3(stretches[1].transform.position.x, head.transform.position.y, stretches[1].transform.position.z);
+            //stretches[0].transform.position = new Vector3(stretches[0].transform.position.x, head.transform.position.y , stretches[0].transform.position.z);
+            //stretches[1].transform.position = new Vector3(stretches[1].transform.position.x, head.transform.position.y, stretches[1].transform.position.z);
             yield return new WaitUntil(() => stretches[0].complete && stretches[1].complete);
             g.SetActive(false);
             murials[i].SetActive(false);

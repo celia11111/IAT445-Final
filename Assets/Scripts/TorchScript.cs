@@ -10,6 +10,7 @@ public class TorchScript : MonoBehaviour
     public MeshRenderer[] otherTorches;
     // Start is called before the first frame update
     public bool on;
+    public bool oneTime = true;
     void Start()
     {
         
@@ -35,8 +36,6 @@ public class TorchScript : MonoBehaviour
         if (other.GetComponent<TorchScript>() && other.GetComponent<TorchScript>().on) {
             on = true;
             render.material = notGlow;
-            render.materials[0] = notGlow;
-            render.materials[1] = notGlow;
             TurnOn();
             //GameObject.Find("TorchController").GetComponent<TorchControllerScript>().AllOn();
         }
@@ -44,12 +43,13 @@ public class TorchScript : MonoBehaviour
         {
             //GetComponent<Rigidbody>().isKinematic = true;
             render.material = notGlow;
-            render.materials[0] = notGlow;
-            render.materials[1] = notGlow;
-            foreach (MeshRenderer m in otherTorches) {
-                m.material = glow;
-                m.materials[0] = glow;
-                m.materials[1] = glow;
+            if (oneTime)
+            {
+                oneTime = false;
+                foreach (MeshRenderer m in otherTorches)
+                {
+                    m.material = glow;
+                }
             }
         }
     }

@@ -7,6 +7,7 @@ public class CheckKey : MonoBehaviour
     // Start is called before the first frame update
     public GameObject shape;
     public bool startMovement;
+    public Vector3 offset;
     void Start()
     {
         
@@ -18,6 +19,7 @@ public class CheckKey : MonoBehaviour
         if (startMovement)
         {
             shape.transform.position = Vector3.MoveTowards(shape.transform.position, transform.position, 0.2f);
+            shape.transform.rotation = Quaternion.Euler(offset);
         }
     }
 

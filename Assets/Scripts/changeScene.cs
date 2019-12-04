@@ -19,7 +19,8 @@ public class changeScene : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        Debug.Log(other.tag);
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "GameController");
         {
             if (SceneManager.GetActiveScene().name == "desert")
             {

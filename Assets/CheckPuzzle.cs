@@ -13,6 +13,7 @@ public class CheckPuzzle : MonoBehaviour
     {
         StartCoroutine(doStuff());
     }
+
     IEnumerator doStuff()
     {
         yield return new WaitUntil(()=> r.startMovement && g.startMovement && b.startMovement);

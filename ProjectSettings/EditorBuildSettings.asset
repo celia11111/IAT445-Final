@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/desert.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/underground.unity
     guid: aef091f5984f642cf998eb60382efa18
+  - enabled: 1
+    path: Assets/Scenes/secretPalace.unity
+    guid: 85bd9ffd2001c23418b5aec094b4915f
   m_configObjects: {}

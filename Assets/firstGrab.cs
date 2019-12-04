@@ -16,9 +16,9 @@ public class firstGrab : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "GameController")
+        if (other.tag == "GameController")
         {
             GetComponent<MeshRenderer>().material = noglow;
         }
