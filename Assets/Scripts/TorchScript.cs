@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// For lighting up torches
 public class TorchScript : MonoBehaviour
 {
     public GameObject flame;
@@ -31,17 +32,19 @@ public class TorchScript : MonoBehaviour
         flame.SetActive(false);
 
     }
+
+    // When the flame of the main torch collides with the top portion of one of the other torches, that torch will turn on
     public void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<TorchScript>() && other.GetComponent<TorchScript>().on) {
             on = true;
             render.material = notGlow;
-            TurnOn();
-            //GameObject.Find("TorchController").GetComponent<TorchControllerScript>().AllOn();
+            TurnOn();         
         }
+
+        // When controller touches the main torch, it will no longer glow. Then, the other torches will glow.
         if (other.tag == "GameController")
         {
-            //GetComponent<Rigidbody>().isKinematic = true;
             render.material = notGlow;
             if (oneTime)
             {
@@ -53,11 +56,5 @@ public class TorchScript : MonoBehaviour
             }
         }
     }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "GameController")
-        {
-            //GetComponent<Rigidbody>().isKinematic = false;
-        }
-    }
+
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
+// Checkes if players pressing the trigger and picks up items.
 public class PickupHand : MonoBehaviour
 {
     public SteamVR_Action_Boolean m_GrabAction = null; // whether pick up or not (either true or false)
@@ -83,15 +84,8 @@ public class PickupHand : MonoBehaviour
         if (m_CurrentInteractable.GetComponent<instrumentToolController>())
             offset = new Vector3(2, 0, 0);
 
-        //m_CurrentInteractable.transform.position = transform.position + offset;
-
-        //if (m_CurrentInteractable.GetComponent<instrumentToolController>())
-        //    m_CurrentInteractable.transform.localRotation = Quaternion.Euler(90, 0, 0);
-
-
-            // Attach the rigidbody of the interactable to the fixed joint of the hands
-            Rigidbody targetBody = m_CurrentInteractable.GetComponent<Rigidbody>();
-        //m_Joint.connectedBody = targetBody;
+        // Attach the rigidbody of the interactable to the fixed joint of the hands
+        Rigidbody targetBody = m_CurrentInteractable.GetComponent<Rigidbody>();
         targetBody.transform.parent = transform;
         // Set active hand variable to our interactable script
         m_CurrentInteractable.m_ActiveHand = this;
@@ -111,7 +105,6 @@ public class PickupHand : MonoBehaviour
         targetBody.velocity = m_Pose.GetVelocity();
         targetBody.angularVelocity = m_Pose.GetAngularVelocity();
         // Detach it from the joint
-        //m_Joint.connectedBody = null;
         targetBody.transform.parent = null;
         // Clear
         m_CurrentInteractable.m_ActiveHand = null;

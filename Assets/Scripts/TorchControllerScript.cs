@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Wait for all the torches to be on. Then, play the animation of the door opens.
 public class TorchControllerScript : MonoBehaviour
 {
     public GameObject[] torches;
@@ -23,12 +24,4 @@ public class TorchControllerScript : MonoBehaviour
             anime.SetBool("open", true);
     }
 
-    //public void AllOn()
-    //{
-        //foreach (GameObject torch in torches)
-        //{
-        //    torch.GetComponent<TorchScript>().on = true;
-        //    torch.GetComponent<TorchScript>().TurnOn();
-        //}
-    //}
 }

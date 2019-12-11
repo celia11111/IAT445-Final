@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
+// For using the controller to grab the object. 
 public class Hand : PickupHand
 {
 
@@ -12,8 +13,8 @@ public class Hand : PickupHand
     private SteamVR_Behaviour_Pose m_Pose = null;
     private FixedJoint m_Joint = null;
 
-    private Interactable m_CurrentInteractable = null;
-    public List<Interactable> m_ContactInteractables = new List<Interactable>();
+    private Interactable m_CurrentInteractable = null; // current item that is picked up by the player
+    public List<Interactable> m_ContactInteractables = new List<Interactable>(); // a list of items that can be picked up
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class Hand : PickupHand
 
     private void Update()
     {
+        // Start grabbing the item when pressing the trigger.
         if (m_TriggerAction.GetLastStateDown(m_Pose.inputSource))
         {
             print(m_Pose.inputSource + "TriggerDown");
@@ -36,6 +38,7 @@ public class Hand : PickupHand
             Pickup();
         }
 
+        // Stop grabbing the item when releasing the trigger.
         if (m_TouchpadAction.GetStateDown(m_Pose.inputSource))
         {
             print(m_Pose.inputSource + "Touchpad Up");
@@ -43,6 +46,7 @@ public class Hand : PickupHand
         }
     }
 
+    // Trigger the grabbing event for the specific object when the controller touches it.
     private void OnTriggerEnter(Collider other)
     {
         if (!other.gameObject.CompareTag("Grab"))
@@ -50,6 +54,7 @@ public class Hand : PickupHand
         m_ContactInteractables.Add(other.gameObject.GetComponent<Interactable>());
     }
 
+    // Not trigger the grabbing event for the specific object when the controller not touches it.
     private void OnTriggerExit(Collider other)
     {
         if (!other.gameObject.CompareTag("Grab"))
@@ -57,6 +62,7 @@ public class Hand : PickupHand
         m_ContactInteractables.Remove(other.gameObject.GetComponent<Interactable>());
     }
 
+    // When picking up the object, make the object's position change with the controller.
     public void Pickup()
     {
         m_CurrentInteractable = GetNearestInteractable();
@@ -75,6 +81,7 @@ public class Hand : PickupHand
         m_CurrentInteractable.m_ActiveHand = this;
     }
 
+    // When dropping the object, do not let the object follow the position of the controller.
     public void Drop()
     {
         if (!m_CurrentInteractable)
@@ -92,6 +99,7 @@ public class Hand : PickupHand
 
     }
 
+    // Checking the item that is about to be grabbed based on the distance between the item and the controller.
     private Interactable GetNearestInteractable()
     {
         Interactable nearest = null;

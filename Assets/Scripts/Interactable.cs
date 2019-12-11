@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script for interactable items.
 [RequireComponent(typeof(Rigidbody))]
 public class Interactable : MonoBehaviour
 {

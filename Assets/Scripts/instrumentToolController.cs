@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// The rod for playing the ancient chime bells.
 public class instrumentToolController : MonoBehaviour
 {
+    // For the 8 different sounds of the bells.
     public AudioClip smallBell1Sound;
     public AudioClip smallBell2Sound;
     public AudioClip mediumBell1Sound;
@@ -33,18 +35,8 @@ public class instrumentToolController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // The sequence of the bells that we want the players to hit. Each of them would have a white outline on it.
         sequence = new int[] { 6, 3, 25, 22, 8, 4, 42, 37, 40, 43};
-        /*MusicSource.clip = smallBell1Sound;
-        MusicSource.clip = smallBell2Sound;
-        MusicSource.clip = mediumBell1Sound;
-        MusicSource.clip = mediumBell2Sound;
-        MusicSource.clip = mediumBell3Sound;
-        MusicSource.clip = bigBell1Sound;
-        MusicSource.clip = bigBell2Sound;
-        MusicSource.clip = bigBell3Sound;*/
-
-        //chimes[sequence[0]].GetComponent<MeshRenderer>().material = glow;
-
 
         GetComponent<MeshRenderer>().material = glow;
 
@@ -59,11 +51,13 @@ public class instrumentToolController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If the rod is picked up, remove the white outglow.
         if (toolStatus && toolStatus.toolPickedUp == true)
         {
             this.gameObject.GetComponent<MeshRenderer>().material = standard;
         }
 
+        // Play the sound based on which bell is hit by the rod.
         if (playSmallBell1 == true)
         {
             gameObject.GetComponent<AudioSource>().clip = smallBell1Sound;
@@ -122,6 +116,7 @@ public class instrumentToolController : MonoBehaviour
 
     }
 
+    // Enable the sound to play when the rod touches the bell.
     public void OnCollisionEnter(Collision otherCollision)
     {
 
@@ -165,6 +160,9 @@ public class instrumentToolController : MonoBehaviour
             playBigBell3 = true;
         }
 
+        // Make the sequence of the bells to have the white outline one by one.
+        // If the current bell is not hit, the white outglow remains shown for this bell and other bells will not have a white outline. 
+        // If the current bell is hit, the white outglow will be removed from this bell and the next bell in the sequence will have a white outline.
         if (count < sequence.Length) {
 
             
@@ -175,68 +173,7 @@ public class instrumentToolController : MonoBehaviour
                 if (count < sequence.Length)
                  chimes[sequence[count]].GetComponent<MeshRenderer>().material = glow;
             }
-            
-
-
-
-
-
-
-
-
-
-
-           /* if (otherCollision.gameObject.tag == "smallBell1" ||
-                otherCollision.gameObject.tag == "smallBell2" ||
-                otherCollision.gameObject.tag == "mediumBell1" ||
-                otherCollision.gameObject.tag == "mediumBell2" ||
-                otherCollision.gameObject.tag == "mediumBell3" ||
-                otherCollision.gameObject.tag == "bigBell1" ||
-                otherCollision.gameObject.tag == "bigBell2" ||
-                otherCollision.gameObject.tag == "bigBell3")
-            {
-                count++;
-            }*/
-
-            /*if (otherCollision.gameObject.tag == "smallBell1")
-            {
-                playSmallBell1 = true;
-            }
-
-            if (otherCollision.gameObject.tag == "smallBell2")
-            {
-                playSmallBell2 = true;
-            }
-
-            if (otherCollision.gameObject.tag == "mediumBell1")
-            {
-                playMediumBell1 = true;
-            }
-
-            if (otherCollision.gameObject.tag == "mediumBell2")
-            {
-                playMediumBell2 = true;
-            }
-
-            if (otherCollision.gameObject.tag == "mediumBell3")
-            {
-                playMediumBell3 = true;
-            }
-
-            if (otherCollision.gameObject.tag == "bigBell1")
-            {
-                playBigBell1 = true;
-            }
-
-            if (otherCollision.gameObject.tag == "bigBell2")
-            {
-                playBigBell2 = true;
-            }
-
-            if (otherCollision.gameObject.tag == "bigBell3")
-            {
-                playBigBell3 = true;
-            }*/
+       
         }
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// For the second controller for the rod for playing the ancient chime bells.
+// It checks the state of the first controller to prevent overlapping commands and bugs.
 public class otherinstrumentTool : instrumentToolController
 
 {
@@ -25,6 +27,7 @@ public class otherinstrumentTool : instrumentToolController
 
     }
 
+    // passes info to the first (main) controller
     public void OnCollisionEnter(Collision otherCollision)
     {
         tool.OnCollisionEnter(otherCollision);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Checks if the key is on the correct slot.
 public class CheckKey : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class CheckKey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // moves the key to the slot if the key name matches with the slot name 
         if (startMovement)
         {
             shape.transform.position = Vector3.MoveTowards(shape.transform.position, transform.position, 0.2f);
@@ -23,6 +25,7 @@ public class CheckKey : MonoBehaviour
         }
     }
 
+    // checks key matches with the slot name
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.name);

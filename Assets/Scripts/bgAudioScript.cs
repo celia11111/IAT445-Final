@@ -15,6 +15,7 @@ public class bgAudioScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // play the background music
         this.gameObject.GetComponent<AudioSource>().enabled = true;
     }
 }

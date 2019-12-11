@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Playing a short piece of music when the player finishes hitting all of the designated bells.
 public class pieceAppear : MonoBehaviour
 {
     public instrumentToolController tool;
@@ -23,21 +24,15 @@ public class pieceAppear : MonoBehaviour
     {
         if (tool.count > 9)
         {
-            //add open door script here
-
             pieceAppearTimer++;
             chimePieceAppear = true;
 
+            // Delay the time for playing the sound after the player finishes hitting all of the bells in the sequence.
             if (pieceAppearTimer > 100 && pieceAppearTimer < 200 && chimePieceAppear == true)
             {
-                /*if (gameObject.name == "chimeDoorLeft")
-                {
-                    this.gameObject.transform.Translate(Vector3.left * Time.deltaTime);
-                }
-                if (gameObject.name == "chimeDoorRight") {
-                    this.gameObject.transform.Translate(Vector3.right * Time.deltaTime);
-                }*/
-                if (gameObject.name == "CylinderPiece")
+               
+                // play the sound
+                if (gameObject.name == "ChimeEndingAudio")
                 {
                     this.gameObject.GetComponent<AudioSource>().enabled = true;
                     this.gameObject.transform.Translate(Vector3.up * Time.deltaTime);
