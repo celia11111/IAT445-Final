@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Tutorial for grabbing: 
+1. https://www.youtube.com/watch?v=HnzmnSqE-Bc&list=PLF6iBvBg-PJPH2A4iJitnMKQkDvnRTtXU&index=30&t=0s
+2. https://www.youtube.com/watch?v=ryfUXr5yvKw&list=PLF6iBvBg-PJPH2A4iJitnMKQkDvnRTtXU&index=31&t=0s
+3. https://www.youtube.com/watch?v=RcTVZq_Du5c&list=PLF6iBvBg-PJPH2A4iJitnMKQkDvnRTtXU&index=32&t=98s
+*/
+
 // Script for interactable items.
 [RequireComponent(typeof(Rigidbody))]
 public class Interactable : MonoBehaviour

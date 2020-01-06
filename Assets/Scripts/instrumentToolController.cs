@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Tutorial for adding multiple audio files into one script: https://www.youtube.com/watch?v=nGpTgAK4diM&list=PLF6iBvBg-PJPH2A4iJitnMKQkDvnRTtXU&index=28&t=0s
+
 // The rod for playing the ancient chime bells.
+
 public class instrumentToolController : MonoBehaviour
 {
     // For the 8 different sounds of the bells.
